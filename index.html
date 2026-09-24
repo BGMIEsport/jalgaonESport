@@ -1,1 +1,2039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0f">
 
+<title>Jalgaon BGMI Tournament 2026</title>
+
+<style>
+:root{
+    --bg:#08090d;
+    --card:#11131a;
+    --card2:#171923;
+    --orange:#ff7a00;
+    --gold:#ffc107;
+    --red:#ff3b30;
+    --green:#20c878;
+    --text:#f5f5f5;
+    --muted:#a7a9b4;
+    --border:#292c37;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at top,#251300 0%,#08090d 35%);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,9,13,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    min-height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#ddd;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+@media(max-width:750px){
+    .nav-links{
+        display:none;
+    }
+}
+
+/* HERO */
+
+.hero{
+    padding:70px 0 55px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 14px;
+    border:1px solid #754000;
+    border-radius:30px;
+    color:#ffc46a;
+    background:#1d1104;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(38px,7vw,75px);
+    line-height:1;
+    font-weight:1000;
+    text-transform:uppercase;
+}
+
+.hero h1 span{
+    color:var(--orange);
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:700px;
+    margin:20px auto;
+    font-size:17px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
+}
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    min-height:48px;
+    padding:0 22px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:#171923;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#ff7a00,#ff9d2e);
+    border:none;
+    color:#111;
+}
+
+.btn:hover{
+    transform:translateY(-1px);
+}
+
+/* COUNTDOWN */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    max-width:650px;
+    margin:35px auto 0;
+}
+
+.time-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 8px;
+}
+
+.time-box strong{
+    display:block;
+    font-size:30px;
+    color:var(--orange);
+}
+
+.time-box span{
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
+}
+
+@media(max-width:500px){
+    .countdown{
+        gap:7px;
+    }
+
+    .time-box{
+        padding:13px 5px;
+    }
+
+    .time-box strong{
+        font-size:23px;
+    }
+}
+
+/* SECTIONS */
+
+section{
+    padding:65px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:clamp(28px,5vw,42px);
+}
+
+.section-title p{
+    color:var(--muted);
+    margin-top:8px;
+}
+
+/* MATCH CARDS */
+
+.match-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.match-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px 16px;
+    text-align:center;
+}
+
+.match-card .icon{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.match-card h3{
+    font-size:17px;
+}
+
+.match-card p{
+    color:var(--muted);
+    font-size:13px;
+    margin:7px 0;
+}
+
+.price{
+    color:var(--gold);
+    font-weight:900;
+    font-size:22px;
+}
+
+@media(max-width:900px){
+    .match-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+    .match-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* INFO CARDS */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.info-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:24px;
+}
+
+.info-card h3{
+    margin-bottom:10px;
+    color:var(--orange);
+}
+
+.info-card p,
+.info-card li{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.info-card ul{
+    padding-left:18px;
+}
+
+@media(max-width:800px){
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* PRIZES */
+
+.prize-table-wrap{
+    overflow-x:auto;
+}
+
+.prize-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:600px;
+    background:var(--card);
+    border-radius:14px;
+    overflow:hidden;
+}
+
+.prize-table th,
+.prize-table td{
+    padding:15px;
+    border-bottom:1px solid var(--border);
+    text-align:left;
+}
+
+.prize-table th{
+    background:#191b24;
+    color:var(--orange);
+}
+
+.prize-table td{
+    color:#ddd;
+}
+
+/* REGISTER */
+
+.register-section{
+    background:linear-gradient(180deg,transparent,#0e0f14,transparent);
+}
+
+.form-box{
+    max-width:850px;
+    margin:auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:28px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-size:13px;
+    font-weight:bold;
+    color:#ddd;
+}
+
+input,
+select{
+    width:100%;
+    height:48px;
+    border-radius:9px;
+    border:1px solid var(--border);
+    background:#090a0e;
+    color:white;
+    padding:0 13px;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:var(--orange);
+}
+
+.player-list{
+    display:grid;
+    gap:12px;
+    margin-top:10px;
+}
+
+.player-box{
+    border:1px solid var(--border);
+    background:#0c0d12;
+    border-radius:12px;
+    padding:15px;
+}
+
+.player-box h4{
+    color:var(--orange);
+    margin-bottom:10px;
+}
+
+@media(max-width:650px){
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .form-box{
+        padding:18px;
+    }
+}
+
+/* PAYMENT */
+
+.payment-box{
+    margin-top:22px;
+    border:1px solid #4c3000;
+    background:#161108;
+    border-radius:15px;
+    padding:20px;
+}
+
+.payment-box h3{
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.payment-content{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:25px;
+    align-items:center;
+}
+
+.qr{
+    width:210px;
+    height:210px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+    background:white;
+    border-radius:12px;
+    padding:8px;
+}
+
+.upi-id{
+    background:#0b0c10;
+    border:1px solid var(--border);
+    border-radius:9px;
+    padding:12px;
+    word-break:break-all;
+    margin:10px 0;
+    color:#ffd37a;
+}
+
+.payment-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.small-note{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:10px;
+}
+
+@media(max-width:650px){
+    .payment-content{
+        grid-template-columns:1fr;
+    }
+
+    .qr{
+        width:190px;
+        height:190px;
+    }
+}
+
+/* CHECKBOX */
+
+.notice{
+    margin:18px 0;
+    padding:13px;
+    border-radius:10px;
+    background:#101218;
+    border:1px solid var(--border);
+    color:var(--muted);
+    font-size:12px;
+}
+
+.checkbox{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    margin:15px 0;
+}
+
+.checkbox input{
+    width:auto;
+    height:auto;
+    margin-top:4px;
+}
+
+.checkbox label{
+    margin:0;
+    font-weight:normal;
+}
+
+/* SUCCESS */
+
+.success{
+    display:none;
+    margin-top:20px;
+    padding:18px;
+    border-radius:12px;
+    border:1px solid #126a42;
+    background:#071b12;
+}
+
+.success.show{
+    display:block;
+}
+
+.success h3{
+    color:var(--green);
+}
+
+/* RULES */
+
+.rules{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.rule{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+}
+
+.rule h3{
+    margin-bottom:8px;
+    color:var(--orange);
+}
+
+.rule p,
+.rule li{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.rule ul{
+    padding-left:18px;
+}
+
+@media(max-width:700px){
+    .rules{
+        grid-template-columns:1fr;
+    }
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:35px 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+}
+
+footer strong{
+    color:white;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.78);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:5000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-card{
+    width:min(500px,100%);
+    background:#11131a;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 20px 80px rgba(0,0,0,.5);
+}
+
+.modal-card h2{
+    margin-bottom:10px;
+}
+
+.modal-card p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    justify-content:flex-end;
+    margin-top:18px;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.highlight{
+    color:var(--orange);
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+    <div class="logo">JALGAON <span>BGMI</span></div>
+
+    <nav class="nav-links">
+        <a href="#matches">Matches</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#register">Register</a>
+        <a href="#rules">Rules</a>
+        <a href="#support">Support</a>
+    </nav>
+</div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+<div class="container">
+
+    <div class="badge">🔥 JALGAON • MAHARASHTRA • 2026</div>
+
+    <h1>BGMI <span>TOURNAMENT</span></h1>
+
+    <p>
+        Jalgaon BGMI Tournament 2026 — compete, survive and take your share
+        of the prize pool.
+    </p>
+
+    <p>
+        📅 <strong>Tuesday, 29 September 2026</strong>
+    </p>
+
+    <div class="hero-buttons">
+        <a href="#register" class="btn btn-primary">
+            🎮 REGISTER NOW
+        </a>
+
+        <a href="#prizes" class="btn">
+            🏆 VIEW PRIZES
+        </a>
+    </div>
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <strong id="days">00</strong>
+            <span>Days</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+        </div>
+
+    </div>
+
+    <p id="countdownText" class="small-note">
+        Tournament countdown
+    </p>
+
+</div>
+</section>
+
+
+<!-- MATCHES -->
+
+<section id="matches">
+<div class="container">
+
+    <div class="section-title">
+        <h2>Match Schedule</h2>
+        <p>Five competitive matches</p>
+    </div>
+
+    <div class="match-grid">
+
+        <div class="match-card">
+            <div class="icon">👥</div>
+            <h3>Squad Match</h3>
+            <p>4 Players</p>
+            <div class="price">₹120</div>
+        </div>
+
+        <div class="match-card">
+            <div class="icon">👫</div>
+            <h3>Duo Match 1</h3>
+            <p>2 Players</p>
+            <div class="price">₹60</div>
+        </div>
+
+        <div class="match-card">
+            <div class="icon">👫</div>
+            <h3>Duo Match 2</h3>
+            <p>2 Players</p>
+            <div class="price">₹60</div>
+        </div>
+
+        <div class="match-card">
+            <div class="icon">🎯</div>
+            <h3>Solo Match 1</h3>
+            <p>1 Player</p>
+            <div class="price">₹30</div>
+        </div>
+
+        <div class="match-card">
+            <div class="icon">🎯</div>
+            <h3>Solo Match 2</h3>
+            <p>1 Player</p>
+            <div class="price">₹30</div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- INFORMATION -->
+
+<section>
+<div class="container">
+
+    <div class="section-title">
+        <h2>Tournament Information</h2>
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <h3>💰 Entry Fee</h3>
+            <p>
+                Squad: ₹120 total<br>
+                Duo: ₹60 total<br>
+                Solo: ₹30 per player
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>📍 Location</h3>
+            <p>
+                Jalgaon, Maharashtra<br>
+                PIN: 425001
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>🎮 Registration</h3>
+            <p>
+                Submit your BGMI UID, player details,
+                contact information and payment reference.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- PRIZES -->
+
+<section id="prizes">
+<div class="container">
+
+    <div class="section-title">
+        <h2>🏆 Prize Structure</h2>
+        <p>Prize amounts as announced by the tournament organizer</p>
+    </div>
+
+    <div class="prize-table-wrap">
+
+        <table class="prize-table">
+
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Prize</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Squad</td>
+                    <td>₹500</td>
+                    <td>Top 10 players</td>
+                </tr>
+
+                <tr>
+                    <td>Squad</td>
+                    <td>₹1,001</td>
+                    <td>Top 5 players</td>
+                </tr>
+
+                <tr>
+                    <td>Squad</td>
+                    <td>₹3,000 × 4</td>
+                    <td>Winning squad</td>
+                </tr>
+
+                <tr>
+                    <td>Duo</td>
+                    <td>₹500</td>
+                    <td>Top 10 players</td>
+                </tr>
+
+                <tr>
+                    <td>Duo</td>
+                    <td>₹1,001</td>
+                    <td>Top 5 players</td>
+                </tr>
+
+                <tr>
+                    <td>Duo</td>
+                    <td>₹4,000 × 4</td>
+                    <td>Top 2 duos</td>
+                </tr>
+
+                <tr>
+                    <td>Solo</td>
+                    <td>₹700</td>
+                    <td>Top 10 players</td>
+                </tr>
+
+                <tr>
+                    <td>Solo</td>
+                    <td>₹1,200</td>
+                    <td>Top 5 players</td>
+                </tr>
+
+                <tr>
+                    <td>Solo</td>
+                    <td>₹5,000 × 3</td>
+                    <td>Top 3 players</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="notice">
+        <strong>Prize clarification:</strong>
+        The organizer should confirm whether the listed prize tiers are cumulative
+        or replacement tiers before the tournament.
+    </div>
+
+</div>
+</section>
+
+
+<!-- REGISTRATION -->
+
+<section id="register" class="register-section">
+<div class="container">
+
+    <div class="section-title">
+        <h2>🎮 Tournament Registration</h2>
+        <p>Complete the form carefully before submitting.</p>
+    </div>
+
+    <div class="form-box">
+
+        <form id="registrationForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="match">Select Match *</label>
+
+                    <select id="match" required>
+
+                        <option value="">
+                            Select match
+                        </option>
+
+                        <option value="Squad Match">
+                            Squad Match — ₹120
+                        </option>
+
+                        <option value="Duo Match 1">
+                            Duo Match 1 — ₹60
+                        </option>
+
+                        <option value="Duo Match 2">
+                            Duo Match 2 — ₹60
+                        </option>
+
+                        <option value="Solo Match 1">
+                            Solo Match 1 — ₹30
+                        </option>
+
+                        <option value="Solo Match 2">
+                            Solo Match 2 — ₹30
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="teamName">
+                        Team / Player Name *
+                    </label>
+
+                    <input
+                        id="teamName"
+                        type="text"
+                        maxlength="40"
+                        placeholder="Enter team/player name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="mobile">
+                        Mobile Number *
+                    </label>
+
+                    <input
+                        id="mobile"
+                        type="tel"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        placeholder="10-digit mobile number"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">
+                        Email Address *
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="your@email.com"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Player Details *
+                    </label>
+
+                    <div id="players" class="player-list">
+
+                        <div class="notice">
+                            Select a match above to enter player details.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="payment-box">
+
+                <h3>💳 Payment</h3>
+
+                <p>
+                    Amount payable:
+                    <strong class="highlight" id="amountDisplay">
+                        Select a match
+                    </strong>
+                </p>
+
+                <div class="payment-content">
+
+                    <div>
+                        <img
+                            src="bharatpe-qr.jpg"
+                            alt="BharatPe Payment QR Code"
+                            class="qr"
+                            onerror="this.style.display='none';document.getElementById('qrError').style.display='block';"
+                        >
+
+                        <div
+                            id="qrError"
+                            class="notice"
+                            style="display:none;text-align:center;"
+                        >
+                            QR image not found.<br>
+                            Make sure the file is named
+                            <strong>bharatpe-qr.jpg</strong>
+                            and is in the same folder as index.html.
+                        </div>
+                    </div>
+
+
+                    <div>
+
+                        <strong>BharatPe UPI ID</strong>
+
+                        <div class="upi-id" id="upiText">
+                            BHARATPE2M0W0A8GOU27213@unitype
+                        </div>
+
+                        <div class="payment-buttons">
+
+                            <button
+                                type="button"
+                                class="btn"
+                                id="copyUpi"
+                            >
+                                📋 Copy UPI
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                id="openUpi"
+                            >
+                                📱 Open UPI App
+                            </button>
+
+                        </div>
+
+                        <p class="small-note">
+                            The UPI button uses your device's UPI deep-link support.
+                            Available apps depend on the device and installed UPI apps.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- UTR -->
+
+            <div class="form-grid" style="margin-top:18px;">
+
+                <div class="form-group full">
+
+                    <label for="utr">
+                        UTR / Payment Reference Number *
+                    </label>
+
+                    <input
+                        id="utr"
+                        type="text"
+                        maxlength="40"
+                        placeholder="Enter UTR / transaction reference"
+                        required
+                    >
+
+                    <p class="small-note">
+                        Do not enter your UPI PIN, OTP, CVV or banking password.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="agree"
+                    required
+                >
+
+                <label for="agree">
+                    I confirm that the information submitted is correct and
+                    I have completed the tournament payment.
+                </label>
+
+            </div>
+
+
+            <div class="notice">
+
+                <strong>Important:</strong>
+                This single-file GitHub Pages version stores registration
+                information only in this browser using local storage.
+                It does not automatically send registrations to the organizer.
+                For centralized registrations, live leaderboard, payment
+                reconciliation and admin controls, a backend such as
+                Google Sheets + Apps Script or another server is required.
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+                style="width:100%;"
+            >
+                🚀 SUBMIT REGISTRATION
+            </button>
+
+
+            <div id="successBox" class="success">
+
+                <h3>✅ Registration Saved</h3>
+
+                <p>
+                    Your registration ID:
+                    <strong id="registrationId"></strong>
+                </p>
+
+                <p>
+                    Save this ID for your records.
+                </p>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- RULES -->
+
+<section id="rules">
+<div class="container">
+
+    <div class="section-title">
+        <h2>📜 Tournament Rules</h2>
+    </div>
+
+    <div class="rules">
+
+        <div class="rule">
+            <h3>🎮 Player Rules</h3>
+
+            <ul>
+                <li>Use the registered BGMI account.</li>
+                <li>Do not share your account.</li>
+                <li>Players must provide correct UID details.</li>
+                <li>Duplicate registrations may be rejected.</li>
+            </ul>
+        </div>
+
+
+        <div class="rule">
+            <h3>🚫 Fair Play</h3>
+
+            <ul>
+                <li>No hacks or unauthorized software.</li>
+                <li>No cheating or exploiting game bugs.</li>
+                <li>No teaming in solo matches.</li>
+                <li>Organizer decisions regarding rule violations apply.</li>
+            </ul>
+        </div>
+
+
+        <div class="rule">
+            <h3>💰 Payment</h3>
+
+            <ul>
+                <li>Pay only to the displayed UPI ID / QR.</li>
+                <li>Keep your transaction reference safe.</li>
+                <li>Never share UPI PIN or OTP.</li>
+                <li>Payment verification is required.</li>
+            </ul>
+        </div>
+
+
+        <div class="rule">
+            <h3>🏆 Results</h3>
+
+            <ul>
+                <li>Match results are determined by organizer records.</li>
+                <li>Prize settlement is subject to verification.</li>
+                <li>Players may be asked for payout details.</li>
+                <li>Keep your registration ID available.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- SUPPORT -->
+
+<section id="support">
+<div class="container">
+
+    <div class="section-title">
+        <h2>📧 Support</h2>
+        <p>Need help with registration or payment?</p>
+    </div>
+
+    <div class="info-card" style="max-width:650px;margin:auto;text-align:center;">
+
+        <h3>Jalgaon BGMI Tournament Support</h3>
+
+        <p>
+            Email:
+        </p>
+
+        <p style="margin:10px 0 18px;">
+            <strong style="color:white;">
+                jalgaonesports7@gmail.com
+            </strong>
+        </p>
+
+        <a
+            class="btn btn-primary"
+            href="mailto:jalgaonesports7@gmail.com?subject=Jalgaon%20BGMI%20Tournament%20Support"
+        >
+            📧 Email Support
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+    <p>
+        © 2026 <strong>Jalgaon BGMI Tournament</strong>
+    </p>
+
+    <p>
+        Jalgaon, Maharashtra • 425001
+    </p>
+
+</div>
+
+</footer>
+
+
+<!-- UPI MODAL -->
+
+<div id="upiModal" class="modal">
+
+    <div class="modal-card">
+
+        <h2>📱 Open UPI Payment</h2>
+
+        <p>
+            Your payment amount is:
+            <strong id="modalAmount" class="highlight"></strong>
+        </p>
+
+        <p>
+            Continue to your installed UPI app to make the payment.
+        </p>
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="btn"
+                id="closeModal"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="continueUpi"
+            >
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   TOURNAMENT SETTINGS
+   ========================================================= */
+
+/*
+   Change this time if your actual tournament start time is different.
+
+   Current setting:
+   29 September 2026 at 7:00 PM IST
+*/
+
+const TOURNAMENT_START = "2026-09-29T19:00:00+05:30";
+
+const UPI_ID = "BHARATPE2M0W0A8GOU27213@unitype";
+
+const MERCHANT_NAME = "Jalgaon BGMI Tournament";
+
+
+/* =========================================================
+   MATCH CONFIGURATION
+   ========================================================= */
+
+const MATCH_CONFIG = {
+
+    "Squad Match": {
+        players: 4,
+        amount: 120
+    },
+
+    "Duo Match 1": {
+        players: 2,
+        amount: 60
+    },
+
+    "Duo Match 2": {
+        players: 2,
+        amount: 60
+    },
+
+    "Solo Match 1": {
+        players: 1,
+        amount: 30
+    },
+
+    "Solo Match 2": {
+        players: 1,
+        amount: 30
+    }
+
+};
+
+
+/* =========================================================
+   SAFE HTML ESCAPE
+   ========================================================= */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+function updateCountdown(){
+
+    const target = new Date(TOURNAMENT_START).getTime();
+    const now = Date.now();
+
+    let difference = target - now;
+
+    if(difference <= 0){
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        document.getElementById("countdownText").textContent =
+            "Tournament time reached.";
+
+        return;
+
+    }
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    difference %= (1000 * 60 * 60 * 24);
+
+    const hours = Math.floor(
+        difference / (1000 * 60 * 60)
+    );
+
+    difference %= (1000 * 60 * 60);
+
+    const minutes = Math.floor(
+        difference / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        difference / 1000
+    );
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+/* =========================================================
+   MATCH SELECTION
+   ========================================================= */
+
+const matchSelect = document.getElementById("match");
+
+const playersContainer = document.getElementById("players");
+
+const amountDisplay = document.getElementById("amountDisplay");
+
+
+function renderPlayers(){
+
+    const selectedMatch = matchSelect.value;
+
+    playersContainer.innerHTML = "";
+
+    if(!selectedMatch){
+
+        amountDisplay.textContent = "Select a match";
+
+        playersContainer.innerHTML = `
+            <div class="notice">
+                Select a match above to enter player details.
+            </div>
+        `;
+
+        return;
+
+    }
+
+    const config = MATCH_CONFIG[selectedMatch];
+
+    amountDisplay.textContent = "₹" + config.amount;
+
+    for(let i = 1; i <= config.players; i++){
+
+        const box = document.createElement("div");
+
+        box.className = "player-box";
+
+        box.innerHTML = `
+
+            <h4>Player ${i}</h4>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="playerName${i}">
+                        BGMI Player Name *
+                    </label>
+
+                    <input
+                        id="playerName${i}"
+                        class="player-name"
+                        data-player="${i}"
+                        type="text"
+                        maxlength="30"
+                        placeholder="BGMI name"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="playerUid${i}">
+                        BGMI UID *
+                    </label>
+
+                    <input
+                        id="playerUid${i}"
+                        class="player-uid"
+                        data-player="${i}"
+                        type="text"
+                        inputmode="numeric"
+                        maxlength="20"
+                        placeholder="BGMI UID"
+                        required
+                    >
+
+                </div>
+
+            </div>
+        `;
+
+        playersContainer.appendChild(box);
+
+    }
+
+}
+
+
+matchSelect.addEventListener("change",renderPlayers);
+
+
+/* =========================================================
+   UPI LINK
+   ========================================================= */
+
+function getUpiLink(){
+
+    const selectedMatch = matchSelect.value;
+
+    if(!selectedMatch){
+        return null;
+    }
+
+    const amount = MATCH_CONFIG[selectedMatch].amount;
+
+    const params = new URLSearchParams({
+
+        pa: UPI_ID,
+
+        pn: MERCHANT_NAME,
+
+        am: amount.toFixed(2),
+
+        cu: "INR"
+
+    });
+
+    return "upi://pay?" + params.toString();
+
+}
+
+
+/* =========================================================
+   COPY UPI
+   ========================================================= */
+
+document.getElementById("copyUpi").addEventListener("click",async function(){
+
+    try{
+
+        await navigator.clipboard.writeText(UPI_ID);
+
+        this.textContent = "✅ Copied!";
+
+        setTimeout(() => {
+
+            this.textContent = "📋 Copy UPI";
+
+        },1500);
+
+    }catch(error){
+
+        alert(
+            "Copy failed. Please copy this UPI ID manually:\n\n" +
+            UPI_ID
+        );
+
+    }
+
+});
+
+
+/* =========================================================
+   UPI MODAL
+   ========================================================= */
+
+const upiModal = document.getElementById("upiModal");
+
+const modalAmount = document.getElementById("modalAmount");
+
+const continueUpi = document.getElementById("continueUpi");
+
+
+document.getElementById("openUpi").addEventListener("click",function(){
+
+    if(!matchSelect.value){
+
+        alert("Please select a match first.");
+
+        return;
+
+    }
+
+    const amount =
+        MATCH_CONFIG[matchSelect.value].amount;
+
+    modalAmount.textContent = "₹" + amount;
+
+    upiModal.classList.add("show");
+
+});
+
+
+document.getElementById("closeModal").addEventListener("click",function(){
+
+    upiModal.classList.remove("show");
+
+});
+
+
+continueUpi.addEventListener("click",function(){
+
+    const link = getUpiLink();
+
+    if(link){
+
+        window.location.href = link;
+
+    }
+
+    upiModal.classList.remove("show");
+
+});
+
+
+upiModal.addEventListener("click",function(event){
+
+    if(event.target === upiModal){
+
+        upiModal.classList.remove("show");
+
+    }
+
+});
+
+
+/* =========================================================
+   REGISTRATION ID
+   ========================================================= */
+
+function generateRegistrationId(){
+
+    const timestamp = Date.now()
+        .toString(36)
+        .toUpperCase();
+
+    const random = Math.random()
+        .toString(36)
+        .substring(2,7)
+        .toUpperCase();
+
+    return "JBG-" + timestamp + "-" + random;
+
+}
+
+
+/* =========================================================
+   DUPLICATE UID CHECK
+   ========================================================= */
+
+function getSavedRegistrations(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem("jalgaonBgmiRegistrations") || "[]"
+        );
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   REGISTRATION SUBMISSION
+   ========================================================= */
+
+document
+.getElementById("registrationForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    const selectedMatch = matchSelect.value;
+
+    if(!selectedMatch){
+
+        alert("Please select a match.");
+
+        return;
+
+    }
+
+
+    const config = MATCH_CONFIG[selectedMatch];
+
+
+    const teamName =
+        document.getElementById("teamName").value.trim();
+
+
+    const mobile =
+        document.getElementById("mobile").value.trim();
+
+
+    const email =
+        document.getElementById("email").value.trim();
+
+
+    const utr =
+        document.getElementById("utr").value.trim();
+
+
+    if(!/^[0-9]{10}$/.test(mobile)){
+
+        alert("Please enter a valid 10-digit mobile number.");
+
+        return;
+
+    }
+
+
+    if(!utr){
+
+        alert("Please enter your UTR / payment reference number.");
+
+        return;
+
+    }
+
+
+    const players = [];
+
+    const uidSet = new Set();
+
+
+    for(let i = 1; i <= config.players; i++){
+
+        const nameInput =
+            document.getElementById("playerName" + i);
+
+        const uidInput =
+            document.getElementById("playerUid" + i);
+
+
+        if(!nameInput || !uidInput){
+
+            alert("Please complete all player details.");
+
+            return;
+
+        }
+
+
+        const name =
+            nameInput.value.trim();
+
+        const uid =
+            uidInput.value.trim();
+
+
+        if(!name || !uid){
+
+            alert("Please complete all player details.");
+
+            return;
+
+        }
+
+
+        if(uidSet.has(uid)){
+
+            alert(
+                "The same BGMI UID cannot be entered twice in one registration."
+            );
+
+            return;
+
+        }
+
+
+        uidSet.add(uid);
+
+
+        players.push({
+
+            playerNumber:i,
+
+            bgmiName:name,
+
+            bgmiUid:uid
+
+        });
+
+    }
+
+
+    /* Check previously saved local registrations */
+
+    const registrations =
+        getSavedRegistrations();
+
+
+    const previousUids = new Set();
+
+
+    registrations.forEach(registration => {
+
+        if(Array.isArray(registration.players)){
+
+            registration.players.forEach(player => {
+
+                if(player.bgmiUid){
+
+                    previousUids.add(
+                        String(player.bgmiUid).trim()
+                    );
+
+                }
+
+            });
+
+        }
+
+    });
+
+
+    for(const player of players){
+
+        if(previousUids.has(player.bgmiUid)){
+
+            alert(
+                "BGMI UID " +
+                player.bgmiUid +
+                " has already been registered on this browser."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    const registration = {
+
+        registrationId:generateRegistrationId(),
+
+        createdAt:new Date().toISOString(),
+
+        match:selectedMatch,
+
+        amount:config.amount,
+
+        teamName:teamName,
+
+        mobile:mobile,
+
+        email:email,
+
+        utr:utr,
+
+        players:players,
+
+        paymentStatus:"Submitted",
+
+        prizeStatus:"Pending"
+
+    };
+
+
+    registrations.push(registration);
+
+
+    try{
+
+        localStorage.setItem(
+            "jalgaonBgmiRegistrations",
+            JSON.stringify(registrations)
+        );
+
+    }catch(error){
+
+        alert(
+            "Registration could not be saved in this browser."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById("registrationId").textContent =
+        registration.registrationId;
+
+
+    const successBox =
+        document.getElementById("successBox");
+
+    successBox.classList.add("show");
+
+
+    successBox.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+
+    /*
+       Do not automatically send email here.
+       GitHub Pages is static and cannot securely send
+       registrations to the organizer.
+    */
+
+
+    this.reset();
+
+    renderPlayers();
+
+});
+
+
+/* =========================================================
+   MOBILE NUMBER CLEANUP
+   ========================================================= */
+
+document
+.getElementById("mobile")
+.addEventListener("input",function(){
+
+    this.value = this.value
+        .replace(/\D/g,"")
+        .slice(0,10);
+
+});
+
+
+/* =========================================================
+   INITIAL STATE
+   ========================================================= */
+
+renderPlayers();
+
+</script>
+
+</body>
+</html>
